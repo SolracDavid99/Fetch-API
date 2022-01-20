@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="crear">Crear</button>
+    <button id="mostrar">Mostrar</button>
+    <button id="modificar">Modificar</button>
+    <button id="eliminar">Eliminar</button>
+
+    <script>
+        document.getElementById("crear").addEventListener("click", crear);
+        document.getElementById("mostrar").addEventListener("click", mostrar);
+        document.getElementById("modificar").addEventListener("click", modificar);
+        document.getElementById("eliminar").addEventListener("click", eliminar);
+
+        function crear(){
+            sessionStorage.setItem("nombre", "Guillermo")
+            sessionStorage.setItem("apellido", "Chang")
+        
+        }
+
+        function mostrar(){
+            alert("Nombre: "+ sessionStorage.getItem("nombre") + ' ' + "Apellido: " + sessionStorage.getItem("apellido"))
+        }
+
+        function modificar(){
+            sessionStorage.setItem("nombre", "David")
+            sessionStorage.setItem("apellido", "Gordillo")
+        }
+
+        function eliminar(){
+            sessionStorage.removeItem("nombre")
+            sessionStorage.removeItem("apellido")
+        }
+
+    </script>
+</body>
+</html>

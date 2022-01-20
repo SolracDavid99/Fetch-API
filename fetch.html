@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id='data'></tbody>
+        </table>
+    
+    </div>
+<script>
+
+    let url = 'https://jsonplaceholder.typicode.com/users'
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error))
+
+    const mostrarData = (data) =>{
+        console.log(data)
+        let body =''
+        for(let i=0; i<data.length; i++){
+            body += `<tr><td>${data[i].username}</td><td>Street: ${data[i].address.street} ; Zip code:  ${data[i].address.zipcode}</td><td>${data[i].phone}</td></tr>`
+        }
+        document.getElementById('data').innerHTML = body
+    }
+
+</script>
+
+</body>
+</html>
